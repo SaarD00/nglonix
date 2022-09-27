@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Editor from "@monaco-editor/react";
 import axios from "axios";
+import { Problem } from "../typings";
+
 const CodeSpace = () => {
   const [fontSize, setFontSize] = useState(15);
   const [userTheme, setUserTheme] = useState("vs-light");
@@ -29,7 +31,7 @@ const CodeSpace = () => {
   return (
     <div className="col-span-4    bg-transparent   space-y-5  text-black">
       <div className="text-black  flex justify-between px-5 py-1 border border-b border-black/10  ">
-        <div className="overflow-y-hidden">
+        <div className="">
           <textarea
             className="w-full outline-none focus:border-gray-200 hover:border "
             rows={2}
@@ -49,18 +51,21 @@ const CodeSpace = () => {
         </div>
       </div>
 
-      <Editor
-        options={options}
-        width="100% "
-        theme={userTheme}
-        defaultLanguage="python"
-        defaultValue="first = 'olleH'
+      <div className="h-screen  overflow-y-hidden ">
+        <Editor
+          options={options}
+          width="100% "
+          theme={userTheme}
+          height="75%"
+          defaultLanguage="python"
+          defaultValue="first = 'olleH'
         second = 'dlroW  "
-        value={code}
-        onChange={(value: any) => {
-          setCode(value);
-        }}
-      />
+          value={code}
+          onChange={(value: any) => {
+            setCode(value);
+          }}
+        />
+      </div>
     </div>
   );
 };

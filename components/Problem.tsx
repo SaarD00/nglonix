@@ -1,31 +1,28 @@
 import { HeartIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
+import { Example, Problem as ProblemType } from "../typings";
 
-const Problem = () => {
+interface Props {
+  problem: ProblemType;
+}
+
+const Problem = ({ problem }: Props) => {
   const [show, setShow] = useState(false);
+  console.log(problem.example.input1);
   return (
-    <div className="col-span-2 bg-transparent border border-r overflow-y-scroll   p-5">
+    <div className="col-span-2   bg-transparent border border-r overflow-y-scroll   p-5">
       {/* Header */}
       <div className="">
-        <h1 className="font-medium">1. Two Sum</h1>
+        <h1 className="font-medium">{problem.title}</h1>
         <div className="flex items-center gap-5 p-3">
-          <p className="text-green-700 font-medium">Easy</p>
+          <p className="text-green-700 font-medium">{problem.difficulty}</p>
           <HeartIcon className="h-4 w-4" />
         </div>
       </div>
       <div className="border-b border-black/10" />
       {/* Description */}
       <div className="p-5">
-        <p className="text-sm">
-          Given a set of letters{" "}
-          <span className="bg-gray-100/70 p-1 rounded-lg italic">first</span>{" "}
-          <span className="bg-gray-100/70 p-1 rounded-lg italic">second</span>{" "}
-          reverse the strings and return the following string
-          <span className="bg-gray-100/70 p-1 rounded-lg italic">
-            HelloWorld
-          </span>
-          in the terminal.
-        </p>
+        <p className="text-sm">{problem.question}</p>
       </div>
 
       {/* Example */}
@@ -35,7 +32,7 @@ const Problem = () => {
         </div>
         <div className="bg-gray-100/70 p-5">
           <h2 className="font-semibold text-sm">
-            Input: <span className="text-sm font-normal">first = "olleH"</span>
+            Input: <span className="text-sm font-normal"></span>
           </h2>
           <h2 className="font-semibold text-sm">
             Input: <span className="text-sm font-normal">second = "dlroW"</span>

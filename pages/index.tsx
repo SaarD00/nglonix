@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, GetStaticProps, NextPage } from "next";
 import { useSession } from "next-auth/react";
 import Head from "next/head";
 import Image from "next/image";
@@ -6,12 +6,22 @@ import Header from "../components/Header";
 import { signIn, signOut } from "next-auth/react";
 import Problem from "../components/Problem";
 import Container from "../components/Container";
+import { Example, Problem as ProblemType, Solution } from "../typings";
+import { fetchProblems } from "../utils/fetchProblems";
+import { fetchExamples } from "../utils/fetchExamples";
+import { fetchSolutions } from "../utils/fetchSolutions";
 
-const Home: NextPage = () => {
+interface Props {
+  problems: ProblemType[];
+  solutions: Solution[];
+  examples: Example[];
+}
+
+const Home = ({ problems, examples, solutions }: Props) => {
   const { data: session } = useSession();
 
   return (
-    <div className="h-screen overflow-y-scroll  ">
+    <div className="h-screen overflow-y-hidden  ">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -19,7 +29,7 @@ const Home: NextPage = () => {
       {session ? (
         <div className="bg-gray-100 overflow-hidden min-h-screen">
           <Header />
-          <Container />
+          <Container problems={problems} />
         </div>
       ) : (
         <>
@@ -54,3 +64,17 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const problems = await fetchProblems();
+  const examples = await fetchExamples();
+  const solutions = await fetchSolutions();
+
+  return {
+    props: {
+      problems,
+      examples,
+      solutions,
+    },
+  };
+};

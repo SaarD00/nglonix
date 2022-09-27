@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   console.log(session);
 
   return (
-    <div className="h-screen overflow-hidden  ">
+    <div className="h-screen overflow-y-scroll  ">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -32,14 +32,19 @@ const Home: NextPage = () => {
             <h1 className="text-xl tracking-[0px] max-w-4xl text-sky-900/70 font-medium">
               Expand your knowledge and prepare for technical interviews.
             </h1>
-            <button className="text-xl text-blue-700 border border-blue-700 p-2 rounded-full px-5">
+            <button
+              onClick={() => {
+                signIn();
+              }}
+              className="text-xl text-blue-700 border border-blue-700 p-2 rounded-full px-5"
+            >
               Get Started
             </button>
 
             <div className="shadow-xl mt-10 rounded-lg shadow-black">
               <img
                 className="w-[52rem] rounded-lg "
-                src="https://saardoo-portfolio.vercel.app/images/links/yt.png"
+                src="https://cdn.discordapp.com/attachments/855452025634291823/1024308645992874014/unknown.png"
               />
             </div>
           </div>

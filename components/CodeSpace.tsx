@@ -27,7 +27,7 @@ const CodeSpace = () => {
   };
 
   return (
-    <div className="col-span-4   max-h-fit  bg-transparent  overflow-hidden space-y-5  text-black">
+    <div className="col-span-4    bg-transparent   space-y-5  text-black">
       <div className="text-black  flex justify-between px-5 py-1 border border-b border-black/10  ">
         <div className="overflow-y-hidden">
           <textarea

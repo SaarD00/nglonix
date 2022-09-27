@@ -1,6 +1,5 @@
 import { HeartIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
-import { HiOutlineMenuAlt1 } from "react-icons/hi";
 
 const Problem = () => {
   const [show, setShow] = useState(false);
@@ -54,9 +53,6 @@ const Problem = () => {
           }}
           className="font-semibold cursor-pointer flex items-center justify-start text-gray-300 hover:text-black transition-all duration-200 gap-2"
         >
-          <span>
-            <HiOutlineMenuAlt1 />
-          </span>
           Solution
         </p>
         {show ? (

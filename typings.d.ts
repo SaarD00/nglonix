@@ -11,12 +11,7 @@ export interface Problem extends SanityBody {
     title: string
     difficulty: string
     question: string
-    example: {
-    _type: "example"
-    input1: string
-    input2: string
-    output: string
-    }
+    example: Example[]
     solution: Solution[]
 }
 

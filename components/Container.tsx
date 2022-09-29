@@ -7,8 +7,7 @@ interface Props {
   problems: ProblemType[];
 }
 
-const Container = ({ problems: problemsProp }: Props) => {
-  const [problems, setProblems] = useState<ProblemType[]>(problemsProp);
+const Container = ({ problems }: Props) => {
   return (
     <div className="grid  grid-cols-6 bg-white  ">
       {problems.map((problem) => (

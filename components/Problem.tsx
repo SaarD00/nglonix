@@ -8,7 +8,6 @@ interface Props {
 
 const Problem = ({ problem }: Props) => {
   const [show, setShow] = useState(false);
-  console.log(problem.example.input1);
   return (
     <div className="col-span-2   bg-transparent border border-r overflow-y-scroll   p-5">
       {/* Header */}
@@ -30,17 +29,22 @@ const Problem = ({ problem }: Props) => {
         <div>
           <p className="font-bold text">Example 1:</p>
         </div>
-        <div className="bg-gray-100/70 p-5">
-          <h2 className="font-semibold text-sm">
-            Input: <span className="text-sm font-normal"></span>
-          </h2>
-          <h2 className="font-semibold text-sm">
-            Input: <span className="text-sm font-normal">second = "dlroW"</span>
-          </h2>
-          <h2 className="font-semibold text-sm">
-            Output: <span className="text-sm font-normal">HelloWorld</span>
-          </h2>
-        </div>
+        {problem.example.map((examples) => (
+          <div className="bg-gray-100/70 p-5">
+            <h2 className="font-semibold text-sm">
+              Input:{" "}
+              <span className="text-sm font-normal">{examples.input1}</span>
+            </h2>
+            <h2 className="font-semibold text-sm">
+              Input:{" "}
+              <span className="text-sm font-normal">{examples.input2}</span>
+            </h2>
+            <h2 className="font-semibold text-sm">
+              Output:{" "}
+              <span className="text-sm font-normal">{examples.output}</span>
+            </h2>
+          </div>
+        ))}
       </div>
       {/* Solution */}
       <div className="mt-5">
@@ -54,27 +58,46 @@ const Problem = ({ problem }: Props) => {
         </p>
         {show ? (
           <div className="space-y-5">
-            <div>
-              <p className="font-bold text">Example 1:</p>
-            </div>
-            <div className="bg-gray-100/70 p-5">
-              <h2 className="font-semibold text-sm">
-                <span className="text-sm font-normal">first = "olleH"</span>
-              </h2>
-              <h2 className="font-semibold text-sm">
-                <span className="text-sm font-normal">second = "dlroW"</span>
-              </h2>
-              <h2 className="font-semibold text-sm">
-                <span className="text-sm font-normal">
-                  final = (second + first)[::-1]
-                </span>
-              </h2>
-              <h2 className="font-semibold text-sm">
-                <span className="text-sm font-normal">print(final)</span>
-              </h2>
-            </div>
+            {problem.solution.map((solutions) => (
+              <>
+                <div>
+                  <p className="font-bold text">
+                    Solution{" "}
+                    <span className="text-gray-700 font-semibold text-base">
+                      1 out of {problem.solution.length}
+                    </span>
+                  </p>
+                </div>
+                <div className="bg-gray-100/70 p-5">
+                  <h2 className="font-semibold text-sm">
+                    <span className="text-sm font-normal">
+                      {solutions.firstCode}
+                    </span>
+                  </h2>
+                  <h2 className="font-semibold text-sm">
+                    <span className="text-sm font-normal">
+                      {solutions.secondCode}
+                    </span>
+                  </h2>
+                  <h2 className="font-semibold text-sm">
+                    <span className="text-sm font-normal">
+                      {solutions.thirdCode}
+                    </span>
+                  </h2>
+                  <h2 className="font-semibold text-sm">
+                    <span className="text-sm font-normal">
+                      {solutions.fourthCode}
+                    </span>
+                  </h2>
+                </div>
+              </>
+            ))}
           </div>
         ) : null}
+
+        <div className="mt-10 bg-gray-800/80 cursor-pointer rounded-full w-fit p-2 text-white/90">
+          <p>Complete</p>
+        </div>
       </div>
     </div>
   );

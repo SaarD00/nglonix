@@ -21,7 +21,7 @@ const Home = ({ problems, examples, solutions }: Props) => {
   const { data: session } = useSession();
 
   return (
-    <div className="h-screen overflow-y-hidden  ">
+    <div className="h-screen ">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -50,12 +50,16 @@ const Home = ({ problems, examples, solutions }: Props) => {
               Get Started
             </button>
 
-            <div className="shadow-xl mt-10 rounded-lg shadow-black">
+            <div className="shadow-xl  mt-10  rounded-lg shadow-black/40">
               <img
                 className="w-[52rem] rounded-lg "
                 src="https://cdn.discordapp.com/attachments/855452025634291823/1024308645992874014/unknown.png"
               />
             </div>
+
+            <footer>
+              <p>end of the pasge</p>
+            </footer>
           </div>
         </>
       )}
@@ -65,10 +69,10 @@ const Home = ({ problems, examples, solutions }: Props) => {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const problems = await fetchProblems();
-  const examples = await fetchExamples();
-  const solutions = await fetchSolutions();
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const problems: ProblemType[] = await fetchProblems();
+  const examples: Example[] = await fetchExamples();
+  const solutions: Solution[] = await fetchSolutions();
 
   return {
     props: {
@@ -76,5 +80,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       examples,
       solutions,
     },
+
+    revalidate: 20,
   };
 };

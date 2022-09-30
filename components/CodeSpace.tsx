@@ -51,7 +51,7 @@ const CodeSpace = () => {
         </div>
       </div>
 
-      <div className="h-screen  overflow-y-hidden ">
+      <div className="h-screen w-screen md:w-full overflow-y-hidden ">
         <Editor
           options={options}
           width="100% "

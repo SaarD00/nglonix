@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { NewspaperIcon } from "@heroicons/react/24/outline";
 function Header({}) {
@@ -12,10 +13,13 @@ function Header({}) {
               <h1 className="font-medium text-lg">Nglonix</h1>
               <h1 className="text-sm text-black/70">Explore</h1>
               <h1 className="text-sm text-black/70">Problems</h1>
-              <h1 className="text-sm text-black/70">Discuss</h1>
+              <h1 className="text-sm text-black/70 hidden md:inline">
+                Discuss
+              </h1>
             </div>
             <div>
-              <img onClick={() => signOut()}
+              <img
+                onClick={() => signOut()}
                 className="h-7 border w-7 rounded-full object-cover"
                 src={session?.user?.image || "https://links.papareact.com/gll"}
               />
@@ -38,11 +42,11 @@ function Header({}) {
           <div>
             <h1 className="text-3xl text-blue-900 ">Nglonix</h1>
           </div>
-          <div className="flex items-center justify-center gap-10 text-rose-500">
+          <div className="flex items-center justify-center gap-2 md:gap-10 text-rose-500">
             <p className="bg-transparent hover:bg-rose-500 hover:text-white transition-all duration-300 p-2 rounded-full ease-out">
               Explore
             </p>
-            <p className="bg-transparent hover:bg-rose-500 hover:text-white transition-all duration-300 p-2 rounded-full ease-out">
+            <p className="bg-transparent hidden md:inline hover:bg-rose-500 hover:text-white transition-all duration-300 p-2 rounded-full ease-out">
               Product
             </p>
             <p className="bg-transparent hover:bg-rose-500 hover:text-white transition-all duration-300 p-2 rounded-full ease-out">

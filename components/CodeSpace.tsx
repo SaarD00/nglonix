@@ -18,10 +18,7 @@ const CodeSpace = () => {
       code,
     };
     try {
-      const { data } = await axios.post(
-        "https://mighty-wildwood-71669.herokuapp.com/run",
-        payload
-      );
+      const { data } = await axios.post("http://localhost:5000/run", payload);
       setOutput(data.output);
     } catch ({ response }) {
       //

@@ -53,7 +53,7 @@ const Home = ({ problems, examples, solutions }: Props) => {
             <div className="shadow-xl  mt-10  rounded-lg shadow-black/40">
               <img
                 className="lg:w-[52rem] w-[30rem] md:w-[42rem] rounded-lg "
-                src="https://cdn.discordapp.com/attachments/855452025634291823/1024308645992874014/unknown.png"
+                src="https://cdn.sanity.io/images/mrfd4see/production/42eddbcf065bf6ad0444a20ea93533d27dfdabf2-1920x867.png?w=2000&fit=max&auto=format"
               />
             </div>
 

@@ -15,7 +15,7 @@ const hard = "p-2 text-red-500";
 
 const Table = ({ problem }: Props) => {
   return (
-    <Link href={`problem/${problem.slug.current}`}>
+    <Link href={`problem/problem`}>
       <div className="odd:bg-white/5 ">
         {/* Header */}
 

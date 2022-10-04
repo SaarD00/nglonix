@@ -9,7 +9,6 @@ import { Example, Problem as ProblemType, Solution } from "../../typings";
 import { fetchProblems } from "../../utils/fetchProblems";
 import { fetchExamples } from "../../utils/fetchExamples";
 import { fetchSolutions } from "../../utils/fetchSolutions";
-import { sanityClient } from "../../sanity";
 
 interface Props {
   problems: ProblemType[];
@@ -68,28 +67,6 @@ const Home = ({ problems, examples, solutions }: Props) => {
 };
 
 export default Home;
-
-export const getStaticPaths = async () => {
-  const query = `*[_type == "problem"] {
-  _id,
-  slug {
-      current
-  }
-}`;
-
-  const posts = await sanityClient.fetch(query);
-
-  const paths = posts.map((problems: ProblemType) => ({
-    params: {
-      slug: problems.slug.current,
-    },
-  }));
-
-  return {
-    paths,
-    fallback: "blocking",
-  };
-};
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const problems: ProblemType[] = await fetchProblems();

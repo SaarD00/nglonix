@@ -13,7 +13,7 @@ const query = groq`
 solution[]->{
   ...,
 }
-}
+}  | order(_createdAt asc)
 `
 
 type Data = {

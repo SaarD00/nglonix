@@ -18,7 +18,7 @@ const CodeSpace = () => {
       code,
     };
     try {
-      const { data } = await axios.post("http://localhost:5000/run", payload);
+      const { data } = await axios.post("", payload);
       setOutput(data.output);
     } catch ({ response }) {
       //

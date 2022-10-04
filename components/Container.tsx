@@ -16,9 +16,11 @@ const Container = ({ problems }: Props) => {
       {/* <div className="absolute font-semibold p-1 justify-end ml-[135px] inline md:hidden cursor-pointer mt-2 rounded-full border border-black/40  items-center">
         <XMarkIcon onClick={() => SetSidebar(false)} className="h-3 w-3" />
       </div> */}
-      {problems.map((problem) => (
-        <Problem problem={problem} key={problem._id} />
-      ))}
+      <div className="col-span-2">
+        {problems.map((problem) => (
+          <Problem problem={problem} key={problem._id} />
+        ))}
+      </div>
       <CodeSpace />
     </div>
   );

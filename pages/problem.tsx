@@ -10,8 +10,6 @@ import { Example, Problem as ProblemType, Solution } from "../typings";
 import { fetchProblems } from "../utils/fetchProblems";
 import { fetchExamples } from "../utils/fetchExamples";
 import { fetchSolutions } from "../utils/fetchSolutions";
-import { NewspaperIcon } from "@heroicons/react/24/outline";
-import ListProblem from "../components/ListProblem";
 
 interface Props {
   problems: ProblemType[];
@@ -29,25 +27,9 @@ const Home = ({ problems, examples, solutions }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {session ? (
-        <div className="bg-black/90 overflow-hidden   min-h-screen ">
-          <div className="px-5 max-w-6xl mx-auto py-2 flex justify-between  items-center rounded-lg  bg-white/5 text-white ">
-            <div className="flex justify-center items-center gap-7 text-gray-200 ">
-              <h1 className="font-medium text-lg text-white">Nglonix</h1>
-              <h1 className="text-sm ">Explore</h1>
-              <h1 className="text-sm  border-b text-white font-semibold ">
-                Problems
-              </h1>
-              <h1 className="text-sm  hidden md:inline">Discuss</h1>
-            </div>
-            <div>
-              <img
-                onClick={() => signOut()}
-                className="h-7 border w-7 rounded-full object-cover"
-                src={session?.user?.image || "https://links.papareact.com/gll"}
-              />
-            </div>
-          </div>
-          <ListProblem problems={problems} />
+        <div className="bg-gray-100 overflow-hidden min-h-screen">
+          <Header />
+          <Container problems={problems} />
         </div>
       ) : (
         <>

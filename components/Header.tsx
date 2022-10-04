@@ -2,15 +2,22 @@ import React from "react";
 import { useState } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { NewspaperIcon } from "@heroicons/react/24/outline";
+import { useRouter } from "next/router";
 function Header({}) {
   const { data: session } = useSession();
+  const router = useRouter();
   return (
     <>
       {session ? (
         <>
           <div className="px-5 py-2 flex justify-between items-center border-b border-black/10 bg-white ">
             <div className="flex justify-center items-center gap-7">
-              <h1 className="font-medium text-lg">Nglonix</h1>
+              <h1
+                onClick={() => router.push("/")}
+                className="font-medium text-lg cursor-pointer"
+              >
+                Nglonix
+              </h1>
               <h1 className="text-sm text-black/70">Explore</h1>
               <h1 className="text-sm text-black/70">Problems</h1>
               <h1 className="text-sm text-black/70 hidden md:inline">

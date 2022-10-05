@@ -10,6 +10,7 @@ export interface Problem extends SanityBody {
     _type: "problem"
     title: string
     difficulty: string
+    attempts: string
     slug: {
         current: string;
       };

@@ -63,7 +63,7 @@ const CodeSpace = () => {
           options={options}
           width="100% "
           theme={userTheme}
-          height="75%"
+          height="55%"
           defaultLanguage="python"
           defaultValue="first = 'olleH'
         second = 'dlroW  "

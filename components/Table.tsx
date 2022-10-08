@@ -15,7 +15,7 @@ const hard = "p-2 text-red-500";
 
 const Table = ({ problem }: Props) => {
   return (
-    <Link href={`problem/problem`}>
+    <Link href={`/problem/problem/#${problem.title}`}>
       <div className="odd:bg-white/5 w-fit flex-shrink-0 flex ">
         {/* Header */}
 

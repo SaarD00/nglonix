@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import Editor from "@monaco-editor/react";
 import axios from "axios";
 import { Problem } from "../typings";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 
 const CodeSpace = () => {
   const [fontSize, setFontSize] = useState(15);
   const [userTheme, setUserTheme] = useState("vs-light");
   const [code, setCode] = useState(``);
   const [output, setOutput] = useState("");
+  const [select, setSelect] = useState(false);
   const options = {
     fontSize: fontSize,
   };
@@ -25,10 +27,18 @@ const CodeSpace = () => {
     }
   };
 
+  const active = "col-span-4    bg-transparent   space-y-5  text-black";
+  const normal = "col-span-5    bg-transparent   space-y-5  text-black";
   return (
-    <div className="col-span-4    bg-transparent   space-y-5  text-black">
+    <div className={select ? normal : active}>
       <div className="text-black  flex justify-between px-5 py-1 border border-b border-black/10  ">
         <div className="">
+          <ArrowLeftIcon
+            onClick={() => {
+              setSelect(true);
+            }}
+            className="h-5 w-5 rounded-full border flex md:hidden "
+          />
           <textarea
             className="w-full outline-none focus:border-gray-200 hover:border "
             rows={2}

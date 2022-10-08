@@ -11,7 +11,7 @@ const Problem = ({ problem }: Props) => {
   const [sidebar, SetSidebar] = useState(true);
 
   const active = "col-span-2   bg-transparent border border-r   p-5";
-  const normal = "col-span-2 hidden   bg-transparent border border-r   p-5";
+  const normal = "col-span-0 hidden   bg-transparent border border-r   p-5";
   return (
     <div className={sidebar ? active : normal}>
       {/* Header */}

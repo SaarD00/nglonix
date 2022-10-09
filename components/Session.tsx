@@ -1,12 +1,14 @@
+import { useSession } from "next-auth/react";
 import React from "react";
 
 const session = () => {
+  const { data: session } = useSession();
   return (
     <div className="bg-white/5  p-8 rounded-lg">
       <div className="flex justify-between">
         <p className="text-white/60 font-semibold">Session</p>
         <p className="text-white/60  text-sm font-light px-2 bg-white/5">
-          Anonymous
+          {session?.user?.name || "Anonymous"}
         </p>
       </div>
       <div className="grid grid-cols-6">

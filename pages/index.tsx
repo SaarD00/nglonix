@@ -60,9 +60,7 @@ const Home = ({ problems, examples, solutions }: Props) => {
               Expand your knowledge and prepare for technical interviews.
             </h1>
             <button
-              onClick={() => {
-                signIn();
-              }}
+              // onClick={() => {}}
               className="md:text-xl  text-blue-700 border border-blue-700 p-2 rounded-full px-5"
             >
               Get Started

@@ -2,14 +2,23 @@ import React, { useState } from "react";
 import Editor from "@monaco-editor/react";
 import axios from "axios";
 import { Problem } from "../typings";
+import { Example, Problem as ProblemType } from "../typings";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { useRouter } from "next/router";
 
-const CodeSpace = () => {
+interface Props {
+  problem: ProblemType;
+}
+
+const CodeSpace = ({ problem }: Props) => {
   const [fontSize, setFontSize] = useState(15);
   const [userTheme, setUserTheme] = useState("vs-light");
   const [code, setCode] = useState(``);
   const [output, setOutput] = useState("");
   const [select, setSelect] = useState(false);
+  const [route, setRoute] = useState(false);
+  const router = useRouter();
+
   const options = {
     fontSize: fontSize,
   };
@@ -21,7 +30,8 @@ const CodeSpace = () => {
     };
     try {
       const { data } = await axios.post(
-        "https://mighty-wildwood-71669.herokuapp.com/run",
+        // "https://mighty-wildwood-71669.herokuapp.com/run",
+        "http://localhost:5000/run",
         payload
       );
       setOutput(data.output);
@@ -30,8 +40,8 @@ const CodeSpace = () => {
     }
   };
 
-  const active = "col-span-4    bg-transparent   space-y-5  text-black";
-  const normal = "col-span-5    bg-transparent   space-y-5  text-black";
+  const active = "col-span-4 h-fit    bg-transparent   space-y-5  text-black";
+  const normal = "col-span-5 h-screen   bg-transparent   space-y-5  text-black";
   return (
     <div className={select ? normal : active}>
       <div className="text-black  flex justify-between px-5 py-1 border border-b border-black/10  ">
@@ -66,7 +76,7 @@ const CodeSpace = () => {
           options={options}
           width="100% "
           theme={userTheme}
-          height="55%"
+          height="60%"
           defaultLanguage="python"
           defaultValue="first = 'olleH'
         second = 'dlroW  "

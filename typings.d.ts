@@ -17,6 +17,7 @@ export interface Problem extends SanityBody {
     question: string
     example: Example[]
     solution: Solution[]
+    answer: string
 }
 
 export interface Solution extends SanityBody {

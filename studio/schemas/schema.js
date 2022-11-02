@@ -5,6 +5,7 @@ import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 import problem from "./problem";
 import example from "./example";
+import { user, account, verificationToken } from "next-auth-sanity/schemas";
 import solution from "./solution";
 
 // We import object and document schemas

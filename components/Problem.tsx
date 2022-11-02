@@ -68,44 +68,43 @@ const Problem = ({ problem }: Props) => {
           >
             Solution
           </p>
-          {show ? (
-            <div className="space-y-5">
-              {problem.solution.map((solutions) => (
-                <>
-                  <div>
-                    <p className="font-bold text">
-                      Solution{" "}
-                      <span className="text-gray-700 font-semibold text-base">
-                        1 out of {problem.solution.length}
-                      </span>
-                    </p>
-                  </div>
-                  <div className="bg-gray-100/70 p-2 md:p-5">
-                    <h2 className="font-semibold text-sm">
-                      <span className="text-sm font-normal">
-                        {solutions.firstCode}
-                      </span>
-                    </h2>
-                    <h2 className="font-semibold text-sm">
-                      <span className="text-sm font-normal">
-                        {solutions.secondCode}
-                      </span>
-                    </h2>
-                    <h2 className="font-semibold text-sm">
-                      <span className="text-sm font-normal">
-                        {solutions.thirdCode}
-                      </span>
-                    </h2>
-                    <h2 className="font-semibold text-sm">
-                      <span className="text-sm font-normal">
-                        {solutions.fourthCode}
-                      </span>
-                    </h2>
-                  </div>
-                </>
-              ))}
-            </div>
-          ) : null}
+
+          <div className="space-y-5">
+            {problem.solution.map((solutions) => (
+              <>
+                <div>
+                  <p className="font-bold text">
+                    Solution{" "}
+                    <span className="text-gray-700 font-semibold text-base">
+                      1 out of {problem.solution.length}
+                    </span>
+                  </p>
+                </div>
+                <div className="bg-gray-100/70 p-2 md:p-5">
+                  <h2 className="font-semibold text-sm">
+                    <span className="text-sm font-normal">
+                      {solutions.firstCode}
+                    </span>
+                  </h2>
+                  <h2 className="font-semibold text-sm">
+                    <span className="text-sm font-normal">
+                      {solutions.secondCode}
+                    </span>
+                  </h2>
+                  <h2 className="font-semibold text-sm">
+                    <span className="text-sm font-normal">
+                      {solutions.thirdCode}
+                    </span>
+                  </h2>
+                  <h2 className="font-semibold text-sm">
+                    <span className="text-sm font-normal">
+                      {solutions.fourthCode}
+                    </span>
+                  </h2>
+                </div>
+              </>
+            ))}
+          </div>
 
           <div className="mt-10 bg-gray-800/80 cursor-pointer rounded-full w-fit p-2 text-white/90">
             <p>Complete</p>

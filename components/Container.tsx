@@ -21,7 +21,11 @@ const Container = ({ problems }: Props) => {
           <Problem problem={problem} key={problem._id} />
         ))}
       </div>
-      <CodeSpace />
+      <div className="col-span-4">
+        {problems.map((problem, i) => (
+          <CodeSpace problem={problem} />
+        ))}
+      </div>
     </div>
   );
 };

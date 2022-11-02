@@ -44,5 +44,10 @@ export default {
       type: "array",
       of: [{ type: "reference", to: { type: "solution" } }],
     },
+    {
+      name: "answer",
+      title: "Answer",
+      type: "string",
+    },
   ],
 };

@@ -53,7 +53,7 @@ export default NextAuth({
 
         if (
           credentials?.username === "SaarDOO" &&
-          credentials?.password === "I<3Sam@6969"
+          credentials?.password === "I<3NoOne:D"
         ) {
           return {
             id: 4,

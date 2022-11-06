@@ -20,7 +20,7 @@ function Header({}) {
               </h1>
               <h1 className="text-sm text-black/70">Explore</h1>
               <h1 className="text-sm text-black/70">Problems</h1>
-              <h1 className="text-sm text-black/70 hidden md:inline">
+              <h1 className="text-sm text-black/70 hidden md:inline  ">
                 Discuss
               </h1>
             </div>

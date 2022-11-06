@@ -18,7 +18,6 @@ interface Props {
 
 const Home = ({ problems, examples, solutions }: Props) => {
   const { data: session } = useSession();
-
   return (
     <div className="h-screen ">
       <Head>
@@ -33,7 +32,7 @@ const Home = ({ problems, examples, solutions }: Props) => {
       ) : (
         <>
           <Header />
-          <div className="flex flex-col justify-center items-center mt-14 gap-6">
+          <div className="flex flex-col justify-center items-center mt-14 gap-6 ">
             <p className="text-xl  md:text-3xl lg:text-4xl tracking-[7px] md:tracking-[10px]  text-sky-900 font-medium">
               A New Way to Learn Python
             </p>

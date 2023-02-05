@@ -30,8 +30,8 @@ const CodeSpace = ({ problem }: Props) => {
     };
     try {
       const { data } = await axios.post(
-        // "https://mighty-wildwood-71669.herokuapp.com/run",
-        "http://localhost:5000/run",
+  
+        "https://online-compiler-backend/run",
         payload
       );
       setOutput(data.output);

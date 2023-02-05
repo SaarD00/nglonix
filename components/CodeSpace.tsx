@@ -31,7 +31,7 @@ const CodeSpace = ({ problem }: Props) => {
     try {
       const { data } = await axios.post(
   
-        "https://online-compiler-backend/run",
+        "https://online-compiler-backend.saard00vfx.repl.co/run",
         payload
       );
       setOutput(data.output);
